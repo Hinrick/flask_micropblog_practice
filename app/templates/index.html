@@ -2,7 +2,22 @@
 
 {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+
+    <div action="" method="post">
+    {% if data %}
+    {% for data in data %}
+    <div>
+      <ul>
+        <li> userId : <b>{{ data['userId'] }}</b></li>
+        <li> point : <b>{{ data['point'] }}</b></li>
+        <li> coupon number : <b>{{ data['coupon_num'] }}</b></li>
+        <li> coupon name : <b>{{ data['name'] }}</b></li>
+      </ul>
+    </div>
     {% endfor %}
+    {% else%}
+    <div><b>No DATA Access!</b></div>
+    {% endif %}
+  </div>
+
 {% endblock %}
